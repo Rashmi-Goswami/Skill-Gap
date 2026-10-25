@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare your skills with a job description and plan what to learn next.">
+  <title>SkillGap — Your Career, Clearly</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+ <script type="module" src="script.js"></script>
+</head>
+
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#">
+        <span class="brand-mark">S</span>
+        <span>skill<span class="brand-light">gap</span></span>
+      </a>
+
+      <p class="nav-label">WORKSPACE</p>
+      <a class="nav-link active" href="#analyzer">◈ &nbsp; Skill analyzer</a>
+      <a class="nav-link" href="#results">▤ &nbsp; My report</a>
+      <a class="nav-link" href="#history">↻ &nbsp; Recent analyses</a>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-note">
+          <span class="note-icon">✦</span>
+          <h3>Small steps.<br>Stronger applications.</h3>
+          <p>Understand the gap. Build the skill. Apply with confidence.</p>
+        </div>
+        <p class="sidebar-foot">SKILLGAP · STUDENT EDITION</p>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">CAREER DEVELOPMENT WORKSPACE</p>
+          <h1>Your career, <span>clearly.</span></h1>
+        </div>
+        <div class="topbar-status">
+          <span class="status-dot"></span> Ready to analyze
+        </div>
+      </header>
+
+<section class="panel" id="account">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">YOUR ACCOUNT</p>
+      <h2>Save your analyses</h2>
+    </div>
+  </div>
+
+  <p id="authStatus" role="status">
+    Sign in or create an account to save reports online.
+  </p>
+
+  <div id="authControls">
+    <label for="authEmail">Email</label>
+    <input
+      id="authEmail"
+      type="email"
+      placeholder="you@example.com"
+      autocomplete="email"
+      required
+    >
+
+    <label for="authPassword">Password</label>
+    <input
+      id="authPassword"
+      type="password"
+      placeholder="At least 6 characters"
+      autocomplete="current-password"
+      minlength="6"
+      required
+    >
+
+    <div class="form-actions">
+      <button class="button button-primary" id="signUpButton" type="button">
+        Sign up
+      </button>
+      <button class="button button-secondary" id="signInButton" type="button">
+        Sign in
+      </button>
+      <button class="button button-secondary" id="signOutButton" type="button" hidden>
+        Sign out
+      </button>
+    </div>
+  </div>
+
+  <p id="authMessage" role="status" aria-live="polite"></p>
+</section>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="hero-kicker">YOUR NEXT OPPORTUNITY STARTS HERE</span>
+          <h2>Know what you bring.<br><span>Know what to build.</span></h2>
+          <p>
+            Compare your current skills with a job description and turn
+            missing requirements into a practical learning plan.
+          </p>
+          <a class="hero-link" href="#analyzer">Start your analysis <span>↘</span></a>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="orbit orbit-three"></div>
+
+          <div class="art-card">
+            <div class="art-card-top">
+              <span class="tiny-dot"></span>
+              <span class="tiny-dot"></span>
+              <span class="tiny-dot"></span>
+            </div>
+            <div class="art-chart">
+              <span></span><span></span><span></span>
+              <span></span><span></span><span></span>
+            </div>
+            <div class="art-line wide"></div>
+            <div class="art-line medium"></div>
+            <div class="art-line short"></div>
+          </div>
+
+          <div class="floating-badge badge-check">✓ <span>Skills mapped</span></div>
+          <div class="floating-badge badge-percent"><strong>↗</strong><span>Keep growing</span></div>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="How SkillGap works">
+        <article class="stat-card">
+          <span class="stat-icon purple">⌕</span>
+          <div>
+            <p class="stat-title">Compare</p>
+            <p class="stat-subtitle">Your skills vs. the role</p>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon mint">◎</span>
+          <div>
+            <p class="stat-title">Find gaps</p>
+            <p class="stat-subtitle">Spot skills to work on</p>
+          </div>
+        </article>
+
+        <article class="stat-card">
+          <span class="stat-icon peach">↗</span>
+          <div>
+            <p class="stat-title">Take action</p>
+            <p class="stat-subtitle">Follow a learning roadmap</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="workspace-grid" id="analyzer">
+        <div class="panel input-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">STEP 01</p>
+              <h2>Build your analysis</h2>
+            </div>
+            <span class="step-pill">Input</span>
+          </div>
+
+          <p class="section-intro">
+            Tell us about the role and the skills you already have.
+            Be honest — this is your personal planning tool.
+          </p>
+
+          <form id="analysisForm">
+            <label for="jobTitle">Target role <span class="required">*</span></label>
+            <input
+              id="jobTitle"
+              name="jobTitle"
+              type="text"
+              placeholder="e.g. Software Engineer Intern"
+              maxlength="100"
+              required
+            >
+
+            <label for="studentSkills">Your current skills <span class="required">*</span></label>
+            <textarea
+              id="studentSkills"
+              name="studentSkills"
+              rows="4"
+              placeholder="e.g. C++, DSA, HTML, CSS, Git"
+              required
+            ></textarea>
+            <p class="field-hint">
+              Separate skills with commas or new lines. Only add skills you can discuss honestly.
+            </p>
+
+            <label for="customSkills">
+              Additional skills to recognize
+              <span class="optional-label">OPTIONAL</span>
+            </label>
+            <input
+              id="customSkills"
+              name="customSkills"
+              type="text"
+              placeholder="e.g. Figma, Linux, Excel"
+            >
+            <p class="field-hint">
+              Add terms not already recognized by SkillGap, separated by commas.
+            </p>
+
+            <label for="jobDescription">Job description <span class="required">*</span></label>
+            <textarea
+              id="jobDescription"
+              name="jobDescription"
+              rows="7"
+              placeholder="Paste the job description here. Include required and nice-to-have skills if listed."
+              required
+            ></textarea>
+            <p class="field-hint">
+              Phrases like “required”, “must have”, “preferred”, and “nice to have”
+              help classify skills.
+            </p>
+
+            <div id="message" class="message" role="status" aria-live="polite" hidden></div>
+
+            <div class="form-actions">
+              <button class="button button-primary" type="submit">
+                Analyze my skill gap <span>→</span>
+              </button>
+              <button class="button button-secondary" id="demoButton" type="button">
+                Try demo
+              </button>
+              <button class="text-button" id="clearButton" type="button">
+                Clear form
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="panel tips-panel">
+          <div class="tips-icon">✦</div>
+          <p class="eyebrow">A BETTER WAY TO PREPARE</p>
+          <h2>Make the next step obvious.</h2>
+          <p class="tips-copy">
+            A job description can feel overwhelming. Break it into skills
+            you have, skills you need, and skills that are a bonus.
+          </p>
+
+          <div class="tip-row">
+            <span class="tip-number">01</span>
+            <div>
+              <strong>Be specific</strong>
+              <p>Use real skills, not just “programming”.</p>
+            </div>
+          </div>
+
+          <div class="tip-row">
+            <span class="tip-number">02</span>
+            <div>
+              <strong>Read the requirements</strong>
+              <p>Required and optional skills are classified using simple wording rules.</p>
+            </div>
+          </div>
+
+          <div class="tip-row">
+            <span class="tip-number">03</span>
+            <div>
+              <strong>Use the roadmap</strong>
+              <p>Start with one missing skill and build a small project around it.</p>
+            </div>
+          </div>
+
+          <div class="honesty-note">
+            <span>ⓘ</span>
+            <p>
+              SkillGap recognizes skill terms. It does not verify your proficiency
+              or predict hiring outcomes.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel results-panel" id="results">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">STEP 02</p>
+            <h2>Your skill-gap report</h2>
+          </div>
+
+          <div class="report-actions">
+            <button class="button button-secondary button-small" id="copyButton" type="button" disabled>
+              Copy summary
+            </button>
+            <button class="button button-secondary button-small" id="downloadButton" type="button" disabled>
+              Download report
+            </button>
+          </div>
+        </div>
+
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">⌁</div>
+          <h3>Your report will appear here</h3>
+          <p>
+            Fill in the form and select <strong>Analyze my skill gap</strong>
+            to see your results.
+          </p>
+        </div>
+
+        <div id="reportContent" hidden></div>
+      </section>
+
+      <section class="panel history-panel" id="history">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR WORKSPACE</p>
+            <h2>Recent analyses</h2>
+          </div>
+          <button class="text-button" id="clearHistoryButton" type="button">
+            Clear history
+          </button>
+        </div>
+
+        <div id="historyList" class="history-list">
+          <p class="history-empty">Your saved analyses will appear here in this browser.</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="footer-brand">skillgap<span>.</span></span>
+        <span>Built to make career preparation more intentional.</span>
+        <span>Student project · Rule-based prototype</span>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
